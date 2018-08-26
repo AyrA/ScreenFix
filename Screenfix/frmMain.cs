@@ -28,6 +28,16 @@ namespace Screenfix
 
         }
 
+        public void CloseAll()
+        {
+            var All = Application.OpenForms.OfType<frmFix>().Where(m => !m.IsDisposed).ToArray();
+            foreach (var F in All)
+            {
+                F.Close();
+                F.Dispose();
+            }
+        }
+
         private void SetMode(int ModeId)
         {
             var Mode = Program.Modes[ModeId % Program.Modes.Length];
@@ -57,7 +67,6 @@ namespace Screenfix
             using (var F = new frmFix(SI.Screen))
             {
                 F.ShowDialog();
-                //Cursor.Show();
             }
         }
 

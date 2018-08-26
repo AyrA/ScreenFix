@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Screenfix
@@ -23,7 +24,15 @@ namespace Screenfix
         {
             if (e.KeyCode == Keys.Escape)
             {
-                Close();
+                var F = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (F != null)
+                {
+                    F.CloseAll();
+                }
+                else
+                {
+                    Close();
+                }
             }
         }
     }

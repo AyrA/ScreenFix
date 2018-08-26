@@ -1,6 +1,6 @@
 ﻿namespace Screenfix
 {
-    partial class Form1
+    partial class frmFlash
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.tUpdate = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // tUpdate
+            // 
+            this.tUpdate.Tick += new System.EventHandler(this.tUpdate_Tick);
+            // 
+            // frmFlash
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(300, 300);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmFlash";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.Text = "ScreenFix Flash";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer tUpdate;
     }
 }
-
